@@ -1,0 +1,10 @@
+h1 {
+    margin: 25px auto;
+    text-align: right;
+}
+
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}

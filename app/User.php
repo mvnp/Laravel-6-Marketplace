@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relacionamento entre classes (Eloquent)
+     *
+     * @return void
+     */
+    public function store()
+    {
+        return $this->hasOne(Store::class);
+    }
 }
