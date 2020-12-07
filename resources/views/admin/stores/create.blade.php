@@ -26,14 +26,6 @@
                     <label for="">Slug</label>
                     <input type="text" class="form-control" name="slug" required />
                 </div>
-                <div class="form-group">
-                    <label for="">Usuário</label>
-                    <select class="form-control" name="user" required>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
                 <div class="mt-4 form-group">
                     <button type="submit" class="btn btn-success btn-lg">Criar loja</button>
                 </div>
