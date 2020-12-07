@@ -6,6 +6,7 @@
             <h1>Editar loja <span><sup><a href="{{ route('admin.stores.index') }}">Listar lojas</a></sup></span></h1>
             <form action='{{ route("admin.stores.update", ["store" => $store->id]) }}' method="POST" enctype="application/x-www-form-urlencoded">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="">Nome da loja</label>
                     <input type="text" class="form-control" name="name" value="{{ $store->name }}" required />

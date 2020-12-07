@@ -13,3 +13,13 @@ sup {
     white-space: nowrap;
     width: 1%;
 }
+
+.edit.btn.btn-primary {
+    float: left;
+    margin-right: 10px;
+}
+
+#actions {
+    width: 135px;
+    margin-left: 10px;
+}

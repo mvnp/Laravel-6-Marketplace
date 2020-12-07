@@ -19,8 +19,12 @@
                             <td>{{ $store->id }}</td>
                             <td>{{ $store->name }}</td>
                             <td class="fit">
-                                <a href='{{ route("admin.stores.edit", ["store" => $store->id]) }}' class="btn btn-primary">Editar</a>
-                                <a href='{{ route("admin.stores.destroy", ["store" => $store->id]) }}' class="btn btn-danger" onclick='return confirm("Deseja realmente excluir este produto?");'>Excluir</a>
+                                <a href='{{ route("admin.stores.edit", ["store" => $store->id]) }}' class="edit btn btn-primary">Editar</a>
+                                <form id="actions" action='{{ route("admin.stores.destroy", ["store" => $store->id]) }}' method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick='return confirm("Deseja realmente excluir esta loja?");'>Excluir</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
