@@ -9,13 +9,16 @@
             <li class="nav-item @if(request()->is('home')) active @endif">
                 <a class="nav-link" href="{{ route('home') }}">Início</a>
             </li>
-            <li class="nav-item @if(request()->is('admin/stores')) active @endif">
+            <li class="nav-item @if(request()->is('admin/stores*')) active @endif">
                 <a class="nav-link" href="{{ route('admin.stores.index') }}">Lojas</a>
             </li>
-            <li class="nav-item @if(request()->is('admin/products')) active @endif">
+            <li class="nav-item @if(request()->is('admin/products*')) active @endif">
                 <a class="nav-link" href="{{ route('admin.products.index') }}">Produtos</a>
             </li>
-            <li class="nav-item @if(request()->is('admin/products')) active @endif">
+            <li class="nav-item @if(request()->is('admin/categories*')) active @endif">
+                <a class="nav-link" href="{{ route('admin.categories.index') }}">Categorias</a>
+            </li>
+            <li class="nav-item @if(request()->is('admin/products*')) active @endif">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.querySelector('form.logout').submit();">Sair</a>
                 <form action="{{ route('logout') }}" class="logout" method="post" style="display:none">
                     @csrf
