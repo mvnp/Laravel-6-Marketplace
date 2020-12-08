@@ -3,9 +3,11 @@
 @section('content')
     <div class="row">
         <div class="col-12">
+            @if(!$store)
             <h1>Listar lojas <span>
-                @if(!$store) <sup><a href="{{ route('admin.stores.create') }}">Criar loja</a></sup></span> @endif
+                 <sup><a href="{{ route('admin.stores.create') }}">Criar loja</a></sup></span> 
             </h1>
+            @else
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -33,6 +35,7 @@
                     </tdoby>
                 </table>
             </div>
+            @endif
         </div>
     </div>
 @endsection

@@ -28,8 +28,9 @@
                     @error('mobile_phone') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-group">
-                    <label for="photos">Logo da loja</label>
-                    <input type="file" name="logo" class="form-control" />
+                    <label for="logo">Logo da loja</label>
+                    <input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror" />
+                    @error('logo') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-group">
                     <label for="">Slug</label>
