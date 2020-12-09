@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-12">
             <h1>Listar produtos <span><sup><a href="{{ route('admin.products.create') }}">Criar produto</a></sup></span></h1>
+            @if($products)
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -36,6 +37,7 @@
                 </table>
                 {{ $products->links() }}
             </div>
+            @endif
         </div>
     </div>
 @endsection

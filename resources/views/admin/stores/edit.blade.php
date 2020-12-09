@@ -32,11 +32,6 @@
                     <input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror" />
                     @error('logo') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <div class="form-group">
-                    <label for="">Slug</label>
-                    <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ $store->slug }}" required />
-                    @error('slug') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                </div>
                 <div class="mt-4 form-group">
                     <button type="submit" class="btn btn-success btn-lg">Atualizar loja</button>
                 </div>

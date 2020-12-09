@@ -40,10 +40,6 @@
                     <input type="file" name="photos[]" class="form-control @error('photos.*') is-invalid @enderror " multiple>
                     @error('photos') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <div class="form-group">
-                    <label for="">Slug</label>
-                    <input type="text" class="form-control" name="slug" value="{{ $product->slug }}" />
-                </div>
                 <div class="mt-4 form-group">
                     <button type="submit" class="btn btn-success btn-lg">Atualizar produto</button>
                 </div>

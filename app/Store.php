@@ -3,10 +3,26 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Store extends Model
 {
+    use HasSlug;
+    
     protected $fillable = ['name', 'description', 'phone', 'mobile_phone', 'slug', 'logo'];
+
+    /**
+     * Convert store name on a friendly-url
+     *
+     * @return SlugOptions
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+                          ->generateSlugsFrom('name')
+                          ->saveSlugsTo('slug');
+    }
 
     /**
      * Relacionamento de lojas e usuários

@@ -28,6 +28,10 @@ class ProductController extends Controller
     public function index()
     {
         $userStore = auth()->user()->store;
+
+        if(!$userStore)
+            return redirect()->route('admin.stores.index');
+
         $products = $userStore->products()->paginate(10);
 
         return view('admin.products.index', compact('products'));
@@ -53,11 +57,13 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-
         $data = $request->all();
-        $store = auth()->user()->store; // \App\Store::find($data['store']);
+        $categories = $request->get('categories', null);
+
+        $store = auth()->user()->store;
         $product = $store->products()->create($data);
-        $product->categories()->sync($data['categories']);
+
+        $product->categories()->sync($categories);
 
         if($request->hasFile('photos')) {
             $images = $this->imageUpload($request->file('photos'), 'imagem');
@@ -103,9 +109,13 @@ class ProductController extends Controller
     public function update(ProductRequest $request, $product)
     {
         $data = $request->all();
+        $categories = $request->get('categories', null);
+
         $product = $this->product->find($product);
         $product->update($data);
-        $product->categories()->sync($data['categories']);
+
+        if(!is_null($categories))
+            $product->categories()->sync($categories);
 
         if($request->hasFile('photos')) {
             $images = $this->imageUpload($request->file('photos'), 'imagem');
