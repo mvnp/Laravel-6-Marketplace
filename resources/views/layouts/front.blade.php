@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .front.row { margin-bottom: 40px }
+        .card-img-top.topi { border: 1px solid #ccc; padding: 36px 10px }
+        .btn.btn-outline-secondary.btn-danger { color: #fff }
     </style>
 </head>
 <body>
